@@ -11,20 +11,24 @@ public class GameScreen extends ScreenAdapter {
 	private Texture gage;
 	private Texture backGround;
 	SpriteBatch batch;
+	Button button;
 	
     public GameScreen(BeatGame beatGame) {
         this.beatGame = beatGame;
         batch = beatGame.batch;
         gage = new Texture("gage.png");
         backGround = new Texture("backGround.png");
+        button = new Button(beatGame);
     }
     
     @Override
     public void render(float delta) {
+
     	Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         backGround();
         batch.begin();
+        button.render(delta);
         batch.draw(gage, 100, 100);
         batch.end();
     }
