@@ -16,6 +16,8 @@ public class GameScreen extends ScreenAdapter{
 	HardMode hardMode;
 	Time time;
 	DazzButton dazzButton;
+	PointScore pointScore;
+	Gage gage;
 	
     public GameScreen(BeatGame beatGame){
         this.beatGame = beatGame;
@@ -26,6 +28,8 @@ public class GameScreen extends ScreenAdapter{
         dazzButton = new DazzButton(beatGame);
         easyMode = new EasyMode(beatGame, time, dazzButton);
         hardMode = new HardMode(beatGame, time, dazzButton);
+        pointScore = new PointScore(beatGame, easyMode, hardMode, button);
+        gage = new Gage(beatGame, pointScore);
     }
     
     @Override
@@ -38,8 +42,10 @@ public class GameScreen extends ScreenAdapter{
         batch.begin();
         time.update(delta);
         button.render(delta);
-        //easyMode.render(delta);
-        hardMode.render(delta);
+        easyMode.render(delta);
+        //hardMode.render(delta);
+        pointScore.update();
+        gage.render();
         batch.end();
         
     }

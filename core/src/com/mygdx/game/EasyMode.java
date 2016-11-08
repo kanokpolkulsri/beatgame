@@ -15,6 +15,7 @@ public class EasyMode extends ScreenAdapter{
 	private int timeEasyMode=0;
 	private int timeEasyModeMaxInRound=0;
 	private int x=0, y=0, numberWhichIsRandomed=1, maxPeriod=70, beatEasyMode=7, oneRoundDazz=10;
+	private int numberWhichIsRandomedBefore [] = new int [1];
 	
 	public EasyMode(BeatGame beatGame, Time time, DazzButton dazzButton){
 		this.beatGame = beatGame;
@@ -24,6 +25,7 @@ public class EasyMode extends ScreenAdapter{
 		randomGenerator = new Random();
 		timeEasyMode = time.getTime();
 		timeEasyModeMaxInRound = time.getTimeHardModeMaxInRound();
+		numberWhichIsRandomedBefore[0] = 1;
 	}
 	
 	@Override
@@ -35,12 +37,19 @@ public class EasyMode extends ScreenAdapter{
 		dazzButton.screenShowColor(x, y, timeEasyMode, timeEasyModeMaxInRound, beatEasyMode);
 		if(timeEasyMode == maxPeriod){
 			numberWhichIsRandomed = randomNumber();
+			numberWhichIsRandomedBefore[0] = numberWhichIsRandomed;
 			maxPeriod += beatEasyMode*oneRoundDazz;
 		}
     }
 	
 	public int randomNumber(){
-		return randomGenerator.nextInt(8)+1;
+		int a = randomGenerator.nextInt(8)+1;
+		if(a != numberWhichIsRandomedBefore[0]){
+			numberWhichIsRandomedBefore[0] = a;
+			return a;
+		}else{ 
+			return randomNumber();
+		}
 	}
 	
 	public int getTimeHere(){
@@ -51,5 +60,8 @@ public class EasyMode extends ScreenAdapter{
 		return time.getTimeEasyModeMaxInRound();
 	}
 	
+	public int getNumberWhichIsRandomed(){
+		return numberWhichIsRandomed;
+	}
 	
 }
