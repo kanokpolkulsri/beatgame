@@ -7,28 +7,19 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Button extends ScreenAdapter{
-	private Texture changeColor1_button;
-	private Texture changeColor2_button;
-	private Texture changeColor3_button;
-	private Texture changeColor4_button;
-	private Texture changeColor5_button;
-	private Texture pressedColor_button;
+	
 	SpriteBatch batch;
 	BeatGame beatGame;
+	private Texture pressedColor_button;
 	
 	public Button(BeatGame beatGame){
 		this.beatGame = beatGame;
 		batch = beatGame.batch;
-		changeColor1_button = new Texture("b1.png");
-		changeColor2_button = new Texture("b5.png");
-		changeColor3_button = new Texture("b10.png");
-		changeColor4_button = new Texture("b15.png");
-		changeColor5_button = new Texture("b20.png");
-		pressedColor_button = new Texture("buttonclick.png");
+		pressedColor_button = new Texture("buttonWhenPressed.png");
 	}
 	
 	@Override
-	public void render(float delta) {
+	public void render(float delta){
 		pressButton();
     }
 	
