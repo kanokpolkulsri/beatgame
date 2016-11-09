@@ -10,7 +10,7 @@ public class PointScore {
 	HardMode hardMode;
 	Button button;
 	
-	public int score=0, pointGage=0;
+	public int score=0, pointGage=0, maxPointGage=27;
 	private int numberWhichIsAnswered [] = new int [1];
 	
 	public PointScore(BeatGame beatGame, EasyMode easyMode, HardMode hardMode, Button button){
@@ -24,15 +24,17 @@ public class PointScore {
 	public void update(){
 		if(easyMode.getNumberWhichIsRandomed() == button.pressButton() && button.pressButton() != numberWhichIsAnswered[0]){
 			score++;
-			if(pointGage <= 27){
+			if(pointGage <= maxPointGage){
 				pointGage++;
+			} else if (pointGage > maxPointGage) {
+				pointGage = maxPointGage;
 			}
-			//System.out.println(pointGage);
+			System.out.println(score);
 			numberWhichIsAnswered[0] = button.pressButton();
 		}else if(easyMode.getNumberWhichIsRandomed() != button.pressButton() && button.pressButton() != 0 && score > 0){
 			score--;
 			pointGage = 0;
-			//System.out.println(pointGage);
+			System.out.println(score);
 		}
 	}
 	

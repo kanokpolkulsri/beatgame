@@ -1,9 +1,10 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class Gage {
+public class Gage extends ScreenAdapter{
 	
 	SpriteBatch batch;
 	BeatGame beatGame;
@@ -20,15 +21,14 @@ public class Gage {
 		gage = new Texture("gage.png");
 	}
 	
-	public void render(){
+	@Override
+	public void render(float delta){
 		pointGage = pointScore.getPointGage();
-		System.out.println(pointGage);
-		//drawGageBar(pointGage);
+		drawGageBar(pointGage);
 	}
 	
 	public void drawGageBar(int pointForGageBar){
-		batch.begin();
-		switch(pointForGageBar%29){
+		switch(pointForGageBar%28){
 		case 27: batch.draw(gage,350,positionY);
 		case 26: batch.draw(gage,340,positionY);
 		case 25: batch.draw(gage,330,positionY);
@@ -57,6 +57,5 @@ public class Gage {
 		case 2: batch.draw(gage,100,positionY);
 		case 1: batch.draw(gage,90,positionY);
 		}
-		batch.end();
 	}
 }
