@@ -24,9 +24,9 @@ public class PointScore {
 	public void update(){
 		if(easyMode.getNumberWhichIsRandomed() == button.pressButton() && button.pressButton() != numberWhichIsAnswered[0]){
 			score++;
-			if(pointGage <= maxPointGage){
+			if(pointGage < maxPointGage){
 				pointGage++;
-			} else if (pointGage > maxPointGage) {
+			} else if (pointGage == maxPointGage) {
 				pointGage = maxPointGage;
 			}
 			System.out.println(score);
