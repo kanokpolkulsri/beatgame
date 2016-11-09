@@ -22,7 +22,7 @@ public class PointScore {
 	}
 	
 	public void update(){
-		if(easyMode.getNumberWhichIsRandomed() == button.pressButton() && button.pressButton() != numberWhichIsAnswered[0]){
+		if((easyMode.getNumberWhichIsRandomed() == button.pressButton()  || hardMode.getNumberWhichIsRandomed() == button.pressButton())&& button.pressButton() != numberWhichIsAnswered[0]){
 			score++;
 			if(pointGage < maxPointGage){
 				pointGage++;
@@ -31,7 +31,7 @@ public class PointScore {
 			}
 			System.out.println(score);
 			numberWhichIsAnswered[0] = button.pressButton();
-		}else if(easyMode.getNumberWhichIsRandomed() != button.pressButton() && button.pressButton() != 0 && score > 0){
+		}else if((easyMode.getNumberWhichIsRandomed() != button.pressButton() || hardMode.getNumberWhichIsRandomed() != button.pressButton())&& button.pressButton() != 0 && score > 0){
 			score--;
 			pointGage = 0;
 			System.out.println(score);

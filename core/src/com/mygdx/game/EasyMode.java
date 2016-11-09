@@ -3,7 +3,6 @@ package com.mygdx.game;
 import java.util.Random;
 
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class EasyMode extends ScreenAdapter{

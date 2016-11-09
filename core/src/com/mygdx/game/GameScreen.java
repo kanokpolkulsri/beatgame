@@ -45,8 +45,8 @@ public class GameScreen extends ScreenAdapter{
         time.update(delta);
         gage.render(delta);
         button.render(delta);
-        easyMode.render(delta);
-        //hardMode.render(delta);
+        //easyMode.render(delta);
+        hardMode.render(delta);
         pointScore.update();
         music.update();
         batch.end();
