@@ -19,6 +19,7 @@ public class GameScreen extends ScreenAdapter{
 	PointScore pointScore;
 	Gage gage;
 	Music music;
+	ContextOnPage contextOnPage;
 	
     public GameScreen(BeatGame beatGame){
         this.beatGame = beatGame;
@@ -32,6 +33,7 @@ public class GameScreen extends ScreenAdapter{
         pointScore = new PointScore(beatGame, easyMode, hardMode, button);
         gage = new Gage(beatGame, pointScore);
         music = new Music(beatGame, button);
+        contextOnPage = new ContextOnPage(beatGame, pointScore, time);
     }
     
     @Override
@@ -40,13 +42,13 @@ public class GameScreen extends ScreenAdapter{
     	Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         backGround();
-        
         batch.begin();
+        contextOnPage.render(delta);
         time.update(delta);
         gage.render(delta);
         button.render(delta);
-        //easyMode.render(delta);
-        hardMode.render(delta);
+        easyMode.render(delta);
+        //hardMode.render(delta);
         pointScore.update();
         music.update();
         batch.end();

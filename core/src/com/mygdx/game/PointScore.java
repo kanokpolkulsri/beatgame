@@ -18,6 +18,7 @@ public class PointScore {
 		this.easyMode = easyMode;
 		this.hardMode = hardMode;
 		this.button = button;
+		batch = beatGame.batch;
 		numberWhichIsAnswered[0] = 0;
 	}
 	
@@ -36,6 +37,10 @@ public class PointScore {
 			pointGage = 0;
 			System.out.println(score);
 		}
+	}
+	
+	public int getPointScore(){
+		return score;
 	}
 	
 	public int getPointGage(){

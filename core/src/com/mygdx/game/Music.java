@@ -8,18 +8,18 @@ public class Music extends ScreenAdapter{
 	SpriteBatch batch;
 	BeatGame beatGame;
 	Button button;
-	com.badlogic.gdx.audio.Music music;
+	com.badlogic.gdx.audio.Music soyouSong;
 	
 	public Music(BeatGame beatGame, Button button){
 		this.beatGame = beatGame;
 		this.button = button;
 		batch = beatGame.batch;
-		music = Gdx.audio.newMusic(Gdx.files.internal("soyou.mp3"));
-		music.setLooping(true);
+		soyouSong = Gdx.audio.newMusic(Gdx.files.internal("soyou.mp3"));
+		soyouSong.setLooping(true);
 	}
 
 	public void update(){
-		music.play();
+		soyouSong.play();
 	}
 
 }
