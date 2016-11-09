@@ -1,8 +1,9 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class PointScore {
+public class PointScore extends ScreenAdapter {
 	
 	SpriteBatch batch;
 	BeatGame beatGame;
@@ -10,7 +11,7 @@ public class PointScore {
 	HardMode hardMode;
 	Button button;
 	
-	public int score=0, pointGage=0, maxPointGage=27;
+	public int score=0, pointGage=0, maxPointGage=27, undoingGage=1, doingGage=2;
 	private int numberWhichIsAnswered [] = new int [1];
 	
 	public PointScore(BeatGame beatGame, EasyMode easyMode, HardMode hardMode, Button button){
@@ -22,18 +23,23 @@ public class PointScore {
 		numberWhichIsAnswered[0] = 0;
 	}
 	
-	public void update(){
+	@Override
+	public void render(float delta){
+		updateScoreAndPointGage();
+	}
+	
+	public void updateScoreAndPointGage(){
 		if((easyMode.getNumberWhichIsRandomed() == button.pressButton()  || hardMode.getNumberWhichIsRandomed() == button.pressButton())&& button.pressButton() != numberWhichIsAnswered[0]){
-			score++;
+			score += 1;
 			if(pointGage < maxPointGage){
-				pointGage++;
+				pointGage += 1;
 			} else if (pointGage == maxPointGage) {
 				pointGage = maxPointGage;
 			}
 			System.out.println(score);
 			numberWhichIsAnswered[0] = button.pressButton();
 		}else if((easyMode.getNumberWhichIsRandomed() != button.pressButton() || hardMode.getNumberWhichIsRandomed() != button.pressButton())&& button.pressButton() != 0 && score > 0){
-			score--;
+			score -= 1;
 			pointGage = 0;
 			System.out.println(score);
 		}

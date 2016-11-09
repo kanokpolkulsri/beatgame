@@ -1,30 +1,62 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class Gage extends ScreenAdapter{
+public class Gage{
 	
 	SpriteBatch batch;
 	BeatGame beatGame;
 	PointScore pointScore;
+	Time time;
 	
 	private Texture gage;
-	public int pointGage=0;
-	private int positionY=406;
+	private Texture frameGage;
 	
-	public Gage(BeatGame beatGame, PointScore pointScore){
+	private int positionY=406;
+	public boolean usingGage = false;
+	public int resetPointGage = 0;
+	public int timeBeginGage=0;
+	
+	public Gage(BeatGame beatGame, PointScore pointScore, Time time){
 		this.beatGame = beatGame;
 		this.pointScore = pointScore;
+		this.time = time;
 		batch = beatGame.batch;
 		gage = new Texture("gage.png");
+		frameGage = new Texture("frameGage.png");
 	}
 	
-	@Override
-	public void render(float delta){
-		pointGage = pointScore.getPointGage();
-		drawGageBar(pointGage);
+	public void update(){
+		usingGage(pointScore.getPointGage());
+		drawGageBar(pointScore.getPointGage());
+	}
+	
+	public void usingGage(int pointGage){
+		if(pointGage == 27 && usingGage == false){
+			batch.draw(frameGage,0,390);
+			if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
+				usingGage = true;
+				timeBeginGage = time.getTime();
+			}
+		}
+		if(time.getTime() == timeBeginGage+500){
+			usingGage = false;
+			resetPointGage = 1;
+		} else {
+			resetPointGage = 0;
+		}
+		
+	}
+	
+	public boolean getUsingGage(){
+		return usingGage;
+	}
+	
+	public int getResetPointGage(){
+		return resetPointGage;
 	}
 	
 	public void drawGageBar(int pointForGageBar){
