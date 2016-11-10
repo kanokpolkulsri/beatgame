@@ -28,8 +28,8 @@ public class GameScreen extends ScreenAdapter{
         batch = beatGame.batch;
         //backGround = new Texture("backGround.png");
         button = new Button(beatGame);
-//        firstPage = new FirstPage(beatGame, button);
-//        music = new Music(beatGame, button, firstPage);
+        firstPage = new FirstPage(beatGame, button);
+        music = new Music(beatGame, button, firstPage);
         
         time = new Time(beatGame, music);
         dazzButton = new DazzButton(beatGame);
@@ -37,9 +37,7 @@ public class GameScreen extends ScreenAdapter{
         hardMode = new HardMode(beatGame, time, dazzButton);
         pointScore = new PointScore(beatGame, easyMode, hardMode, button, this, time);
         gage = new Gage(beatGame, pointScore, time);
-        contextOnPage = new ContextOnPage(beatGame, pointScore, time);
-        firstPage = new FirstPage(beatGame, button);
-        music = new Music(beatGame, button, firstPage);
+        contextOnPage = new ContextOnPage(beatGame, pointScore, time, music);
         gamePage = new GamePage(beatGame, this, music, firstPage);
         
     }
@@ -52,6 +50,7 @@ public class GameScreen extends ScreenAdapter{
         batch.begin();
         if(music.getDevilStatus() == false && music.getDonotloveyouStatus() == false && music.getSoyouStatus() == false){
         	firstPage.render();
+        	contextOnPage.renderWhenGameNotStartYet();
         }
         music.update();
         if(music.getDevilStatus() == true || music.getDonotloveyouStatus() == true || music.getSoyouStatus() == true){
