@@ -14,11 +14,11 @@ public class Gage{
 	
 	private Texture gage;
 	private Texture frameGage;
+	private Texture frameGageUsing;
 	
 	private int positionY=406;
 	public boolean usingGage = false;
-	public int resetPointGage = 0;
-	public int timeBeginGage=0;
+	public int timeBeginGage = 0;
 	
 	public Gage(BeatGame beatGame, PointScore pointScore, Time time){
 		this.beatGame = beatGame;
@@ -27,6 +27,8 @@ public class Gage{
 		batch = beatGame.batch;
 		gage = new Texture("gage.png");
 		frameGage = new Texture("frameGage.png");
+		frameGageUsing = new Texture("frameGageUsing.png");
+		
 	}
 	
 	public void update(){
@@ -42,21 +44,20 @@ public class Gage{
 				timeBeginGage = time.getTime();
 			}
 		}
-		if(time.getTime() == timeBeginGage+500){
-			usingGage = false;
-			resetPointGage = 1;
-		} else {
-			resetPointGage = 0;
+		if(usingGage == true){
+			batch.draw(frameGageUsing,0,390);
+			if(time.getTime() >= timeBeginGage+500){
+				usingGage = false;
+			}
 		}
-		
+	}
+	
+	public int getTimeBeginGage(){
+		return timeBeginGage;
 	}
 	
 	public boolean getUsingGage(){
 		return usingGage;
-	}
-	
-	public int getResetPointGage(){
-		return resetPointGage;
 	}
 	
 	public void drawGageBar(int pointForGageBar){

@@ -30,7 +30,7 @@ public class GameScreen extends ScreenAdapter{
         dazzButton = new DazzButton(beatGame);
         easyMode = new EasyMode(beatGame, time, dazzButton);
         hardMode = new HardMode(beatGame, time, dazzButton);
-        pointScore = new PointScore(beatGame, easyMode, hardMode, button);
+        pointScore = new PointScore(beatGame, easyMode, hardMode, button, this, time);
         gage = new Gage(beatGame, pointScore, time);
         music = new Music(beatGame, button);
         contextOnPage = new ContextOnPage(beatGame, pointScore, time);
@@ -46,8 +46,8 @@ public class GameScreen extends ScreenAdapter{
         contextOnPage.render(delta);
         time.update(delta);
         button.render(delta);
-        easyMode.render(delta);
-        //hardMode.render(delta);
+        //easyMode.render(delta);
+        hardMode.render(delta);
         gage.update();
         pointScore.render(delta);
         music.update();
@@ -59,5 +59,9 @@ public class GameScreen extends ScreenAdapter{
     	batch.begin();
     	batch.draw(backGround, 0, 0);
     	batch.end();
+    }
+    
+    public Gage getGage() {
+    	return gage;
     }
 }
