@@ -22,7 +22,21 @@ public class Button extends ScreenAdapter{
 	@Override
 	public void render(float delta){
 		pressButton();
+		pressDirectionButton();
     }
+	
+	public int pressDirectionButton(){
+		if(Gdx.input.isKeyJustPressed(Input.Keys.UP)){
+			return 11;
+		}
+		if(Gdx.input.isKeyJustPressed(Input.Keys.DOWN)){
+			return 12;
+		}
+		if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
+			return 13;
+		}
+		return 10;
+	}
 	
 	public int pressButton(){
 		if(Gdx.input.isKeyJustPressed(Input.Keys.Z) | Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_1)){

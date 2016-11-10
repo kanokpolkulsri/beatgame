@@ -18,7 +18,7 @@ public class Gage{
 	
 	private int positionY=406;
 	public boolean usingGage = false;
-	public int timeBeginGage = 0;
+	public int timeBeginGage = -500;
 	
 	public Gage(BeatGame beatGame, PointScore pointScore, Time time){
 		this.beatGame = beatGame;

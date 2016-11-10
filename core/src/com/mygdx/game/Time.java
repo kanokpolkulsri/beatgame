@@ -10,17 +10,49 @@ public class Time {
 	public int secondSong = 5;
 	private BeatGame beatGame;
 	SpriteBatch batch;
+	Music music;
+	private boolean timeStartIsUsed = false;
 	
-	public Time(BeatGame beatGame){
+	public Time(BeatGame beatGame, Music music){
 		this.beatGame = beatGame;
+		this.music = music;
 		batch = beatGame.batch;
+		if(music.getSoyouStatus() == true){
+			minuteSong = 2;
+			secondSong = 5;
+		} else if (music.getDonotloveyouStatus() == true){
+			minuteSong = 2;
+			secondSong = 30;
+		} else if ( music.getDevilStatus() == true){
+			minuteSong = 2;
+			secondSong = 3;
+		}
 	}
 	
 
 	public void update(float delta){
+		prepareTimeStart();
 		time++;
 		updateTimeWhenMaxRound();
 		updateTimeSong();
+	}
+	
+	public void prepareTimeStart(){
+		if(timeStartIsUsed == false){
+			if(music.getSoyouStatus() == true){
+				minuteSong = 2;
+				secondSong = 5;
+				timeStartIsUsed = true;
+			} else if (music.getDonotloveyouStatus() == true){
+				minuteSong = 2;
+				secondSong = 30;
+				timeStartIsUsed = true;
+			} else if ( music.getDevilStatus() == true){
+				minuteSong = 2;
+				secondSong = 3;
+				timeStartIsUsed = true;
+			}
+		}
 	}
 	
 	public void updateTimeSong(){

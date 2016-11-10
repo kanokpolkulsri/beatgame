@@ -14,7 +14,7 @@ public class PointScore extends ScreenAdapter {
 	Time time;
 	GameScreen gameScreen;
 	
-	public int score=0, pointGage=25, maxPointGage=27, undoingGage=1, doingGage=2;
+	public int score=0, pointGage=0, maxPointGage=27, undoingGage=1, doingGage=2;
 	private boolean useGage = false;
 	private int numberWhichIsAnswered [] = new int [1];
 	

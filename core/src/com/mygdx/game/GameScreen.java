@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GameScreen extends ScreenAdapter{
 	private BeatGame beatGame;
-	private Texture backGround;
+	//private Texture backGround;
 	SpriteBatch batch;
 	
 	Button button;
@@ -20,20 +20,28 @@ public class GameScreen extends ScreenAdapter{
 	Gage gage;
 	Music music;
 	ContextOnPage contextOnPage;
+	FirstPage firstPage;
+	GamePage gamePage;
 	
     public GameScreen(BeatGame beatGame){
         this.beatGame = beatGame;
         batch = beatGame.batch;
-        backGround = new Texture("backGround.png");
-        time = new Time(beatGame);
+        //backGround = new Texture("backGround.png");
         button = new Button(beatGame);
+//        firstPage = new FirstPage(beatGame, button);
+//        music = new Music(beatGame, button, firstPage);
+        
+        time = new Time(beatGame, music);
         dazzButton = new DazzButton(beatGame);
         easyMode = new EasyMode(beatGame, time, dazzButton);
         hardMode = new HardMode(beatGame, time, dazzButton);
         pointScore = new PointScore(beatGame, easyMode, hardMode, button, this, time);
         gage = new Gage(beatGame, pointScore, time);
-        music = new Music(beatGame, button);
         contextOnPage = new ContextOnPage(beatGame, pointScore, time);
+        firstPage = new FirstPage(beatGame, button);
+        music = new Music(beatGame, button, firstPage);
+        gamePage = new GamePage(beatGame, this, music, firstPage);
+        
     }
     
     @Override
@@ -41,27 +49,48 @@ public class GameScreen extends ScreenAdapter{
 
     	Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        backGround();
         batch.begin();
-        contextOnPage.render(delta);
-        time.update(delta);
-        button.render(delta);
-        //easyMode.render(delta);
-        hardMode.render(delta);
-        gage.update();
-        pointScore.render(delta);
+        if(music.getDevilStatus() == false && music.getDonotloveyouStatus() == false && music.getSoyouStatus() == false){
+        	firstPage.render();
+        }
         music.update();
+        if(music.getDevilStatus() == true || music.getDonotloveyouStatus() == true || music.getSoyouStatus() == true){
+        	gamePage.render(delta);
+        }
         batch.end();
         
     }
     
-    public void backGround(){
-    	batch.begin();
-    	batch.draw(backGround, 0, 0);
-    	batch.end();
+    
+    public Button getButton(){
+    	return button;
+    }
+
+    public ContextOnPage getContextOnPage(){
+    	return contextOnPage;
     }
     
+    public PointScore getPointScore(){
+    	return pointScore;
+    }
+    
+    public HardMode getHardMode(){
+    	return hardMode;
+    }
+    
+    public EasyMode getEastMode(){
+    	return easyMode;
+    }
+    
+    public DazzButton getDazzButton(){
+    	return dazzButton;
+    }
+    
+    public Time getTime(){
+    	return time;
+    }
     public Gage getGage() {
     	return gage;
     }
+    
 }
