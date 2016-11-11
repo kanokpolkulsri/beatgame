@@ -59,7 +59,7 @@ public class Gage {
 	}
 	
 	public void drawGageBar(int pointForGageBar) {
-		switch(pointForGageBar % 28){
+		switch (pointForGageBar % 28) {
 		case 27: batch.draw(gage, 350, positionY);
 		case 26: batch.draw(gage, 340, positionY);
 		case 25: batch.draw(gage, 330, positionY);
