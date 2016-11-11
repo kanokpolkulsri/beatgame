@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GameScreen extends ScreenAdapter {
+	
 	BeatGame beatGame;
 	SpriteBatch batch;
 	Button button;
@@ -60,7 +61,6 @@ public class GameScreen extends ScreenAdapter {
         
     }
     
-    
     public Button getButton() {
     	return button;
     }
@@ -88,6 +88,7 @@ public class GameScreen extends ScreenAdapter {
     public Time getTime() {
     	return time;
     }
+    
     public Gage getGage() {
     	return gage;
     }

@@ -5,6 +5,7 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Music extends ScreenAdapter{
+	
 	SpriteBatch batch;
 	BeatGame beatGame;
 	Button button;

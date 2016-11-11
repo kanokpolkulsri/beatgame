@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Time {
+	
 	BeatGame beatGame;
 	SpriteBatch batch;
 	Music music;
@@ -15,7 +16,6 @@ public class Time {
 		this.music = music;
 	}
 	
-
 	public void update(float delta) {
 		prepareTimeStart();
 		time += 1;

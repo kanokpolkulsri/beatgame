@@ -4,11 +4,11 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class FirstPage {
+	
 	SpriteBatch batch;
 	Button button;
 	Texture firstPage;
 	Texture frameFirstPage;
-	
 	private int positionFrameX = 125, positionFrameY = 300;
 	public int numberSong = 0;
 	

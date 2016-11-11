@@ -6,6 +6,7 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class HardMode extends ScreenAdapter {
+	
 	SpriteBatch batch;
 	BeatGame beatGame;
 	DazzButton dazzButton;

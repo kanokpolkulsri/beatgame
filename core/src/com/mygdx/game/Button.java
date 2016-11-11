@@ -12,7 +12,6 @@ public class Button extends ScreenAdapter {
 	BeatGame beatGame;
 	private Texture pressedColor_button;
 	
-	
 	public Button(BeatGame beatGame) {
 		this.beatGame = beatGame;
 		batch = beatGame.batch;
