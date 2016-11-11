@@ -20,7 +20,7 @@ public class GamePage extends ScreenAdapter {
 	FirstPage firstPage;
 	Texture backGround;
 	
-	public GamePage(BeatGame beatGame, GameScreen gameScreen, Music music, FirstPage firstPage){
+	public GamePage(BeatGame beatGame, GameScreen gameScreen, Music music, FirstPage firstPage) {
 		batch = beatGame.batch;
 		this.beatGame = beatGame;
 		this.gameScreen = gameScreen;
@@ -38,24 +38,23 @@ public class GamePage extends ScreenAdapter {
 	}
 	
 	@Override
-	public void render(float delta){
-		
-		if(music.getSoyouStatus() == true){
+	public void render(float delta) {
+		if (music.getSoyouStatus() == true) {
 			soyouStart(delta);
 		}
-		if(music.getDonotloveyouStatus() == true){
+		if (music.getDonotloveyouStatus() == true) {
 			donotloveyouStart(delta);
 		}
-		if(music.getDevilStatus() == true){
+		if (music.getDevilStatus() == true) {
 			devilStart(delta);
 		}
 	}
 	
-	public void backGround(){
+	public void backGround() {
     	batch.draw(backGround, 0, 0);
     }
 	
-	public void devilStart(float delta){
+	public void devilStart(float delta) {
 		backGround();
 		contextOnPage.render(delta);
 		time.update(delta);
@@ -66,7 +65,7 @@ public class GamePage extends ScreenAdapter {
 		pointScore.render(delta);
 	}
 	
-	public void donotloveyouStart(float delta){
+	public void donotloveyouStart(float delta) {
 		backGround();
 		contextOnPage.render(delta);
 		time.update(delta);
@@ -76,7 +75,7 @@ public class GamePage extends ScreenAdapter {
 		pointScore.render(delta);
 	}
 	
-	public void soyouStart(float delta){
+	public void soyouStart(float delta) {
 		backGround();
 		contextOnPage.render(delta);
 		time.update(delta);

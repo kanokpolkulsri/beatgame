@@ -5,22 +5,21 @@ import java.util.Random;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class HardMode extends ScreenAdapter{
+public class HardMode extends ScreenAdapter {
 	SpriteBatch batch;
 	BeatGame beatGame;
 	DazzButton dazzButton;
 	Time time;
 	private Random randomGenerator;
-	private int timeHardMode=0;
-	private int timeHardModeMaxInRound=0;
-	private int x=0, y=0, numberWhichIsRandomed=1, maxPeriod=40, beatHardMode=4, oneRoundDazz=10;
+	private int timeHardMode = 0, timeHardModeMaxInRound = 0;
+	private int x = 0, y = 0, numberWhichIsRandomed = 1, maxPeriod = 40, beatHardMode = 4, oneRoundDazz = 10;
 	private int numberWhichIsRandomedBefore [] = new int [1];
 	
-	public HardMode(BeatGame beatGame, Time time, DazzButton dazzButton){
+	public HardMode(BeatGame beatGame, Time time, DazzButton dazzButton) {
+		batch = beatGame.batch;
 		this.beatGame = beatGame;
 		this.time = time;
 		this.dazzButton = dazzButton;
-		batch = beatGame.batch;
 		randomGenerator = new Random();
 		timeHardMode = time.getTime();
 		timeHardModeMaxInRound = time.getTimeEasyModeMaxInRound();
@@ -28,38 +27,38 @@ public class HardMode extends ScreenAdapter{
 	}
 	
 	@Override
-	public void render(float delta){
+	public void render(float delta) {
 		timeHardMode = getTimeHere();
 		timeHardModeMaxInRound = getTimeHardModeMaxInRoundHere();
 		x = dazzButton.positionXFromRandomNumber(numberWhichIsRandomed);
 		y = dazzButton.positionYFromRandomNumber(numberWhichIsRandomed);
 		dazzButton.screenShowColor(x, y, timeHardMode, timeHardModeMaxInRound, beatHardMode);
-		if(timeHardMode == maxPeriod){
+		if (timeHardMode == maxPeriod) {
 			numberWhichIsRandomed = randomNumber();
 			numberWhichIsRandomedBefore[0] = numberWhichIsRandomed;
 			maxPeriod += beatHardMode*oneRoundDazz;
 		}
     }
 	
-	public int randomNumber(){
-		int a = randomGenerator.nextInt(8)+1;
-		if(a != numberWhichIsRandomedBefore[0]){
+	public int randomNumber() {
+		int a = randomGenerator.nextInt(8) + 1;
+		if (a != numberWhichIsRandomedBefore[0]) {
 			numberWhichIsRandomedBefore[0] = a;
 			return a;
-		}else{ 
+		} else { 
 			return randomNumber();
 		}
 	}
 	
-	public int getTimeHere(){
+	public int getTimeHere() {
 		return time.getTime();
 	}
 	
-	public int getTimeHardModeMaxInRoundHere(){
+	public int getTimeHardModeMaxInRoundHere() {
 		return time.getTimeHardModeMaxInRound();
 	}
 	
-	public int getNumberWhichIsRandomed(){
+	public int getNumberWhichIsRandomed() {
 		return numberWhichIsRandomed;
 	}
 	
