@@ -28,20 +28,12 @@ public class ContextOnPage extends ScreenAdapter {
 	@Override
 	public void render(float delta) {
 		renderWhenGameStarted();
-		showScore();
-	}
-	
-	public void showScore(){
-		if (music.getFinishGameShowScore() == true) {
-			font.draw(batch, " " + pointScore.getPointScore(), 125, 300);
-			batch.draw(showScore, 0, 0);
-		}
 	}
 	
 	public void renderWhenGameStarted() {
 		if (music.getFinishGameShowScore() == false) {
 			font.draw(batch, "" + pointScore.getPointScore(), 65, 495);
-			if (music.getSoyouStatus() == true){
+			if (music.getSoyouStatus() == true) {
 				font.draw(batch, "So you", 180, 545);
 			} else if (music.getDonotloveyouStatus() == true) {
 				font.draw(batch, "Do not love you", 150, 545);

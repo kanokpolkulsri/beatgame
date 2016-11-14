@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GameScreen extends ScreenAdapter {
@@ -22,6 +23,9 @@ public class GameScreen extends ScreenAdapter {
 	FirstPage firstPage;
 	GamePage gamePage;
 	
+	BitmapFont font;
+	Texture showScore;
+	
     public GameScreen(BeatGame beatGame) {
     	batch = beatGame.batch;
         this.beatGame = beatGame;
@@ -37,6 +41,8 @@ public class GameScreen extends ScreenAdapter {
         contextOnPage = new ContextOnPage(beatGame, pointScore, time, music);
         gamePage = new GamePage(beatGame, this, music, firstPage);
         initTime();
+		font = new BitmapFont();
+		showScore = new Texture("showScore.png");
         
     }
     
@@ -49,7 +55,9 @@ public class GameScreen extends ScreenAdapter {
     	Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
-        if (music.getDevilStatus() == false && music.getDonotloveyouStatus() == false && music.getSoyouStatus() == false) {
+        if (music.getFinishGameShowScore() == true) {
+        	showScoreWhenFinishGame();
+        } else if (music.getDevilStatus() == false && music.getDonotloveyouStatus() == false && music.getSoyouStatus() == false) {
         	firstPage.render();
         	contextOnPage.renderWhenGameNotStartYet();
         }
@@ -59,6 +67,11 @@ public class GameScreen extends ScreenAdapter {
         }
         batch.end();
         
+    }
+    
+    public void showScoreWhenFinishGame() {
+    	batch.draw(showScore, 0, 0);
+		font.draw(batch, " " + pointScore.getPointScore(), 195, 335);
     }
     
     public Button getButton() {
