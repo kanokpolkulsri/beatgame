@@ -62,11 +62,19 @@ public class GameScreen extends ScreenAdapter {
         	contextOnPage.renderWhenGameNotStartYet();
         }
         music.update();
-        if (music.getDevilStatus() == true || music.getDonotloveyouStatus() == true || music.getSoyouStatus() == true) {
+        if (stillOnGamePage()) {
         	gamePage.render(delta);
         }
         batch.end();
         
+    }
+    
+    public boolean stillOnGamePage(){
+    	if (music.getDevilStatus() == true || music.getDonotloveyouStatus() == true || music.getSoyouStatus() == true) {
+    		return true;
+    	} else {
+    		return false;
+    	}
     }
     
     public boolean stillOnFirstPage(){
