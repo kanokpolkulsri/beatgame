@@ -7,10 +7,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class HardMode extends ScreenAdapter {
 	
-	SpriteBatch batch;
-	BeatGame beatGame;
-	DazzButton dazzButton;
-	Time time;
+	private SpriteBatch batch;
+	private BeatGame beatGame;
+	private DazzButton dazzButton;
+	private Time time;
 	private Random randomGenerator;
 	private int timeHardMode = 0, timeHardModeMaxInRound = 0;
 	private int x = 0, y = 0, numberWhichIsRandomed = 1, maxPeriod = 40, beatHardMode = 4, oneRoundDazz = 10;
