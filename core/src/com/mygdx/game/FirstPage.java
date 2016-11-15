@@ -5,11 +5,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class FirstPage {
 	
-	SpriteBatch batch;
-	Button button;
-	Texture firstPage;
-	Texture frameFirstPage;
-	private int positionFrameX = 125, positionFrameY = 300;
+	private SpriteBatch batch;
+	private Button button;
+	private Texture firstPage;
+	private Texture frameFirstPage;
+	private static int positionFrameX = 125;
+	private int positionFrameY = 300;
 	public int numberSong = 0;
 	
 	public FirstPage(BeatGame beatGame, Button button) {
