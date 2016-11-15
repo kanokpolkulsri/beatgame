@@ -6,19 +6,19 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GamePage extends ScreenAdapter {
 	
-	SpriteBatch batch;
-	BeatGame beatGame;
-	GameScreen gameScreen;
-	ContextOnPage contextOnPage;
-	Time time;
-	Button button;
-	EasyMode easyMode;
-	HardMode hardMode;
-	Gage gage;
-	PointScore pointScore;
-	Music music;
-	FirstPage firstPage;
-	Texture backGround;
+	private SpriteBatch batch;
+	private BeatGame beatGame;
+	private GameScreen gameScreen;
+	private ContextOnPage contextOnPage;
+	private Time time;
+	private Button button;
+	private EasyMode easyMode;
+	private HardMode hardMode;
+	private Gage gage;
+	private PointScore pointScore;
+	private Music music;
+	private FirstPage firstPage;
+	private Texture backGround;
 	
 	public GamePage(BeatGame beatGame, GameScreen gameScreen, Music music, FirstPage firstPage) {
 		batch = beatGame.batch;
