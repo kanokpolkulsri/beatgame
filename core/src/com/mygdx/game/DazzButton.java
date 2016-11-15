@@ -6,8 +6,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class DazzButton extends ScreenAdapter {
 	
-	SpriteBatch batch;
-	BeatGame beatGame;
+	private SpriteBatch batch;
+	private BeatGame beatGame;
 	private Texture changeColor1_button;
 	private Texture changeColor2_button;
 	private Texture changeColor3_button;
