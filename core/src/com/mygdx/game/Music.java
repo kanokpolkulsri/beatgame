@@ -6,16 +6,17 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Music extends ScreenAdapter{
 	
-	SpriteBatch batch;
-	BeatGame beatGame;
-	Button button;
-	FirstPage firstPage;
-	Time time;
-	GameScreen gameScreen;
-	com.badlogic.gdx.audio.Music soyouSong;
-	com.badlogic.gdx.audio.Music donotloveyouSong;
-	com.badlogic.gdx.audio.Music devilSong;
+	private SpriteBatch batch;
+	private BeatGame beatGame;
+	private Button button;
+	private FirstPage firstPage;
+	private Time time;
+	private GameScreen gameScreen;
+	private com.badlogic.gdx.audio.Music soyouSong;
+	private com.badlogic.gdx.audio.Music donotloveyouSong;
+	private com.badlogic.gdx.audio.Music devilSong;
 	private boolean soyouMode = false, donotloveyouMode = false, devilMode = false;
+	private static int numberSoyouSong = 1, numberDonotloveyouSong = 2, numberDevilSong = 3, pressEnter = 13;
 	public boolean finishGameShowScore = false;
 	
 	public Music(BeatGame beatGame, Button button, FirstPage firstPage, GameScreen gameScreen) {
@@ -59,8 +60,8 @@ public class Music extends ScreenAdapter{
 	}
 	
 	public void devilPlay() {
-		if (firstPage.getNumberSong() == 3 && devilMode == false) {
-			if (button.pressDirectionButton() == 13){
+		if (firstPage.getNumberSong() == numberDevilSong && devilMode == false) {
+			if (button.pressDirectionButton() == pressEnter){
 				devilMode = true;
 			}
 		}
@@ -75,8 +76,8 @@ public class Music extends ScreenAdapter{
 	}
 	
 	public void donotloveyouPlay() {
-		if (firstPage.getNumberSong() == 2 && donotloveyouMode == false) {
-			if (button.pressDirectionButton() == 13) {
+		if (firstPage.getNumberSong() == numberDonotloveyouSong && donotloveyouMode == false) {
+			if (button.pressDirectionButton() == pressEnter) {
 				donotloveyouMode = true;
 			}
 		}
@@ -91,8 +92,8 @@ public class Music extends ScreenAdapter{
 	}
 	
 	public void soyouPlay() {
-		if (firstPage.getNumberSong() == 1 && soyouMode == false) {
-			if (button.pressDirectionButton() == 13) {
+		if (firstPage.getNumberSong() == numberSoyouSong && soyouMode == false) {
+			if (button.pressDirectionButton() == pressEnter) {
 				soyouMode = true;
 			}
 		}
