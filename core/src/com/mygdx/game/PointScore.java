@@ -1,25 +1,20 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class PointScore extends ScreenAdapter {
 	
-	SpriteBatch batch;
-	BeatGame beatGame;
-	EasyMode easyMode;
-	HardMode hardMode;
-	Button button;
-	Gage gage;
-	Time time;
-	GameScreen gameScreen;
+	private EasyMode easyMode;
+	private HardMode hardMode;
+	private Button button;
+	private Gage gage;
+	private Time time;
+	private GameScreen gameScreen;
 	private boolean useGage = false;
 	private int numberWhichIsAnswered [] = new int [1];
 	public int score = 0, pointGage = 0, maxPointGage = 27, undoingGage = 1, doingGage = 2;
 	
 	public PointScore(BeatGame beatGame, EasyMode easyMode, HardMode hardMode, Button button, GameScreen gameScreen, Time time) {
-		batch = beatGame.batch;
-		this.beatGame = beatGame;
 		this.easyMode = easyMode;
 		this.hardMode = hardMode;
 		this.button = button;
