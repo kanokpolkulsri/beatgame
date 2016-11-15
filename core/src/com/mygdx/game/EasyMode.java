@@ -7,10 +7,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class EasyMode extends ScreenAdapter {
 	
-	SpriteBatch batch;
-	BeatGame beatGame;
-	DazzButton dazzButton;
-	Time time;
+	private SpriteBatch batch;
+	private BeatGame beatGame;
+	private DazzButton dazzButton;
+	private Time time;
 	private Random randomGenerator;
 	private int timeEasyMode = 0, timeEasyModeMaxInRound = 0;
 	private int x = 0, y = 0, numberWhichIsRandomed = 1, maxPeriod = 70, beatEasyMode = 7, oneRoundDazz = 10;
