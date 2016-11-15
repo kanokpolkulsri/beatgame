@@ -26,7 +26,7 @@ public class Time {
 	public void prepareTimeStart() {
 		if (timeStartIsUsed == false) {
 			if (music.getSoyouStatus() == true) {
-				minuteSong = 0;
+				minuteSong = 2;
 				secondSong = 7;
 				timeStartIsUsed = true;
 			} else if (music.getDonotloveyouStatus() == true) {
