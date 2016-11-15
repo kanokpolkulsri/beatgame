@@ -9,22 +9,22 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GameScreen extends ScreenAdapter {
 	
-	BeatGame beatGame;
-	SpriteBatch batch;
-	Button button;
-	EasyMode easyMode;
-	HardMode hardMode;
-	Time time;
-	DazzButton dazzButton;
-	PointScore pointScore;
-	Gage gage;
-	Music music;
-	ContextOnPage contextOnPage;
-	FirstPage firstPage;
-	GamePage gamePage;
+	private BeatGame beatGame;
+	private SpriteBatch batch;
+	private Button button;
+	private EasyMode easyMode;
+	private HardMode hardMode;
+	private Time time;
+	private DazzButton dazzButton;
+	private PointScore pointScore;
+	private Gage gage;
+	private Music music;
+	private ContextOnPage contextOnPage;
+	private FirstPage firstPage;
+	private GamePage gamePage;
 	
-	BitmapFont font;
-	Texture showScore;
+	private BitmapFont font;
+	private Texture showScore;
 	
     public GameScreen(BeatGame beatGame) {
     	batch = beatGame.batch;
@@ -40,9 +40,9 @@ public class GameScreen extends ScreenAdapter {
         gage = new Gage(beatGame, pointScore, time);
         contextOnPage = new ContextOnPage(beatGame, pointScore, time, music);
         gamePage = new GamePage(beatGame, this, music, firstPage);
-        initTime();
 		font = new BitmapFont();
 		showScore = new Texture("showScore.png");
+		initTime();
         
     }
     
