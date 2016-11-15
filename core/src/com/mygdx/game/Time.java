@@ -1,18 +1,12 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-
 public class Time {
 	
-	BeatGame beatGame;
-	SpriteBatch batch;
-	Music music;
+	private Music music;
 	private boolean timeStartIsUsed = false;
 	public int time = 0, timeEasyModeMaxInRound = 0, timeHardModeMaxInRound = 0, minuteSong = 0, secondSong = 5;
 	
 	public Time(BeatGame beatGame, Music music) {
-		batch = beatGame.batch;
-		this.beatGame = beatGame;
 		this.music = music;
 	}
 	
