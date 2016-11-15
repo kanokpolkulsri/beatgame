@@ -22,7 +22,6 @@ public class GameScreen extends ScreenAdapter {
 	private ContextOnPage contextOnPage;
 	private FirstPage firstPage;
 	private GamePage gamePage;
-	
 	private BitmapFont font;
 	private Texture showScore;
 	

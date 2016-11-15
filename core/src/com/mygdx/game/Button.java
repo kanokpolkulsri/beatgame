@@ -8,8 +8,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Button extends ScreenAdapter {
 	
-	SpriteBatch batch;
-	BeatGame beatGame;
+	private SpriteBatch batch;
+	private BeatGame beatGame;
 	private Texture pressedColor_button;
 	
 	public Button(BeatGame beatGame) {
@@ -37,7 +37,7 @@ public class Button extends ScreenAdapter {
 		return 10;
 	}
 	
-	public int pressButton(){
+	public int pressButton() {
 		if (Gdx.input.isKeyJustPressed(Input.Keys.Z) | Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_1)) {
 			batch.draw(pressedColor_button, 14, 32);
 			return 1;
