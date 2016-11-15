@@ -6,8 +6,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Music extends ScreenAdapter{
 	
-	private SpriteBatch batch;
-	private BeatGame beatGame;
 	private Button button;
 	private FirstPage firstPage;
 	private Time time;
@@ -20,8 +18,6 @@ public class Music extends ScreenAdapter{
 	public boolean finishGameShowScore = false;
 	
 	public Music(BeatGame beatGame, Button button, FirstPage firstPage, GameScreen gameScreen) {
-		batch = beatGame.batch;
-		this.beatGame = beatGame;
 		this.button = button;
 		this.firstPage = firstPage;
 		this.gameScreen = gameScreen;
