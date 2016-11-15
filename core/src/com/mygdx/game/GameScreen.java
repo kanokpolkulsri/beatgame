@@ -57,7 +57,7 @@ public class GameScreen extends ScreenAdapter {
         batch.begin();
         if (music.getFinishGameShowScore() == true) {
         	showScoreWhenFinishGame();
-        } else if (music.getDevilStatus() == false && music.getDonotloveyouStatus() == false && music.getSoyouStatus() == false) {
+        } else if (stillOnFirstPage()) {
         	firstPage.render();
         	contextOnPage.renderWhenGameNotStartYet();
         }
@@ -67,6 +67,14 @@ public class GameScreen extends ScreenAdapter {
         }
         batch.end();
         
+    }
+    
+    public boolean stillOnFirstPage(){
+    	if (music.getDevilStatus() == false && music.getDonotloveyouStatus() == false && music.getSoyouStatus() == false) {
+    		return true;
+    	} else {
+    		return false;
+    	}
     }
     
     public void showScoreWhenFinishGame() {
