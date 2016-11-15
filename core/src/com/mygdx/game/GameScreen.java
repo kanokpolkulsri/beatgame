@@ -55,7 +55,7 @@ public class GameScreen extends ScreenAdapter {
     	Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
-        if (music.getFinishGameShowScore() == true) {
+        if (music.getFinishGameShowScore()) {
         	showScoreWhenFinishGame();
         } else if (stillOnFirstPage()) {
         	firstPage.render();
