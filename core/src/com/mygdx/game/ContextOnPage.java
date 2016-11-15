@@ -7,13 +7,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class ContextOnPage extends ScreenAdapter {
 	
-	SpriteBatch batch;
-	BeatGame beatGame;
-	BitmapFont font;
-	PointScore pointScore;
-	Time time;
-	Music music;
-	Texture showScore;
+	private SpriteBatch batch;
+	private BeatGame beatGame;
+	private BitmapFont font;
+	private PointScore pointScore;
+	private Time time;
+	private Music music;
 	
 	public ContextOnPage(BeatGame beatGame, PointScore pointScore, Time time, Music music) {
 		batch = beatGame.batch;
@@ -22,7 +21,6 @@ public class ContextOnPage extends ScreenAdapter {
 		this.time = time;
 		this.music = music;
 		font = new BitmapFont();
-		showScore = new Texture("showScore.png");
 	}
 	
 	@Override
