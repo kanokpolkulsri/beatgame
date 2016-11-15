@@ -7,14 +7,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Gage {
 	
-	SpriteBatch batch;
-	BeatGame beatGame;
-	PointScore pointScore;
-	Time time;
+	private SpriteBatch batch;
+	private BeatGame beatGame;
+	private PointScore pointScore;
+	private Time time;
 	private Texture gage;
 	private Texture frameGage;
 	private Texture frameGageUsing;
-	private int positionY = 406;
+	private static int positionY = 406, maxPointForGage = 27, phraseTimeGage = 500;
 	public int timeBeginGage = -500;
 	public boolean usingGage = false;
 	
@@ -35,7 +35,7 @@ public class Gage {
 	}
 	
 	public void usingGage(int pointGage) {
-		if (pointGage == 27 && usingGage == false) {
+		if (pointGage == maxPointForGage && usingGage == false) {
 			batch.draw(frameGage, 0, 390);
 			if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
 				usingGage = true;
@@ -44,7 +44,7 @@ public class Gage {
 		}
 		if (usingGage == true) {
 			batch.draw(frameGageUsing, 0, 390);
-			if (time.getTime() >= timeBeginGage + 500) {
+			if (time.getTime() >= timeBeginGage + phraseTimeGage) {
 				usingGage = false;
 			}
 		}
