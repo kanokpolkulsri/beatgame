@@ -54,18 +54,26 @@ public class GameScreen extends ScreenAdapter {
     	Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
-        if (music.getFinishGameShowScore()) {
+        homePageAndScorePage();
+        music.update();
+        onGamePage(delta);
+        batch.end();
+        
+    }
+    
+    public void onGamePage(float delta){
+    	if (stillOnGamePage()) {
+        	gamePage.render(delta);
+        }
+    }
+    
+    public void homePageAndScorePage(){
+    	if (music.getFinishGameShowScore()) {
         	showScoreWhenFinishGame();
         } else if (stillOnFirstPage()) {
         	firstPage.render();
         	contextOnPage.renderWhenGameNotStartYet();
         }
-        music.update();
-        if (stillOnGamePage()) {
-        	gamePage.render(delta);
-        }
-        batch.end();
-        
     }
     
     public boolean stillOnGamePage(){
