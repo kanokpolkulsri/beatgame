@@ -1,14 +1,12 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class ContextOnPage extends ScreenAdapter {
 	
 	private SpriteBatch batch;
-	private BeatGame beatGame;
 	private BitmapFont font;
 	private PointScore pointScore;
 	private Time time;
@@ -16,7 +14,6 @@ public class ContextOnPage extends ScreenAdapter {
 	
 	public ContextOnPage(BeatGame beatGame, PointScore pointScore, Time time, Music music) {
 		batch = beatGame.batch;
-		this.beatGame = beatGame;
 		this.pointScore = pointScore;
 		this.time = time;
 		this.music = music;

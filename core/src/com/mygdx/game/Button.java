@@ -9,12 +9,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class Button extends ScreenAdapter {
 	
 	private SpriteBatch batch;
-	private BeatGame beatGame;
 	private Texture pressedColor_button;
 	
 	public Button(BeatGame beatGame) {
 		batch = beatGame.batch;
-		this.beatGame = beatGame;
 		pressedColor_button = new Texture("buttonWhenPressed.png");
 	}
 	
