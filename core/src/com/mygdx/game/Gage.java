@@ -8,7 +8,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class Gage {
 	
 	private SpriteBatch batch;
-	private BeatGame beatGame;
 	private PointScore pointScore;
 	private Time time;
 	private Texture gage;
@@ -20,7 +19,6 @@ public class Gage {
 	
 	public Gage(BeatGame beatGame, PointScore pointScore, Time time) {
 		batch = beatGame.batch;
-		this.beatGame = beatGame;
 		this.pointScore = pointScore;
 		this.time = time;
 		gage = new Texture("gage.png");
