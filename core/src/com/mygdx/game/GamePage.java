@@ -54,6 +54,7 @@ public class GamePage extends ScreenAdapter {
 		time.update(delta);
 		button.render(delta);
 		easyMode.render(delta);
+		easyMode.render(delta);
 		hardMode.render(delta);
 		gage.update();
 		pointScore.render(delta);

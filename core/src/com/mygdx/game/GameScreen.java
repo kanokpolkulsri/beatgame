@@ -129,4 +129,8 @@ public class GameScreen extends ScreenAdapter {
     	return gage;
     }
     
+    public Music getMusic() {
+    	return music;
+    }
+    
 }

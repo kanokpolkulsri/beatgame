@@ -12,7 +12,7 @@ public class Music extends ScreenAdapter{
 	private com.badlogic.gdx.audio.Music soyouSong;
 	private com.badlogic.gdx.audio.Music donotloveyouSong;
 	private com.badlogic.gdx.audio.Music devilSong;
-	private boolean soyouMode = false, donotloveyouMode = false, devilMode = false;
+	public boolean soyouMode = false, donotloveyouMode = false, devilMode = false;
 	private static int numberSoyouSong = 1, numberDonotloveyouSong = 2, numberDevilSong = 3, pressEnter = 13;
 	public boolean finishGameShowScore = false;
 	
