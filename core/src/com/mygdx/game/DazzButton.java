@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class DazzButton extends ScreenAdapter {
 	
 	private SpriteBatch batch;
-	private BeatGame beatGame;
 	private Texture changeColor1_button;
 	private Texture changeColor2_button;
 	private Texture changeColor3_button;
@@ -17,7 +16,6 @@ public class DazzButton extends ScreenAdapter {
 	
 	public DazzButton(BeatGame beatGame) {
 		batch = beatGame.batch;
-		this.beatGame = beatGame;
 		changeColor1_button = new Texture("changeColor1_button.png");
 		changeColor2_button = new Texture("changeColor2_button.png");
 		changeColor3_button = new Texture("changeColor3_button.png");
