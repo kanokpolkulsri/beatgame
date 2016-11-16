@@ -10,7 +10,7 @@ public class FirstPage {
 	private Button button;
 	private Texture firstPage;
 	private Texture frameFirstPage;
-	private com.badlogic.gdx.audio.Music fatratSong;
+	//private com.badlogic.gdx.audio.Music fatratSong;
 	private static int positionFrameX = 125;
 	private int positionFrameY = 300;
 	public int numberSong = 0;
@@ -20,9 +20,9 @@ public class FirstPage {
 		this.button = button;
 		firstPage = new Texture("firstPage2.png");
 		frameFirstPage = new Texture("frameFirstPage.png");
-		fatratSong = Gdx.audio.newMusic(Gdx.files.internal("fatratSong.mp3"));
-		fatratSong.setLooping(true);
-		fatratSong.play();
+		//fatratSong = Gdx.audio.newMusic(Gdx.files.internal("fatratSong.mp3"));
+		//fatratSong.setLooping(true);
+		//fatratSong.play();
 	}
 	
 	public void render() {

@@ -12,6 +12,7 @@ public class Music extends ScreenAdapter{
 	private com.badlogic.gdx.audio.Music soyouSong;
 	private com.badlogic.gdx.audio.Music donotloveyouSong;
 	private com.badlogic.gdx.audio.Music devilSong;
+	private com.badlogic.gdx.audio.Music fatratSong;
 	public boolean soyouMode = false, donotloveyouMode = false, devilMode = false;
 	private static int numberSoyouSong = 1, numberDonotloveyouSong = 2, numberDevilSong = 3, pressEnter = 13;
 	public boolean finishGameShowScore = false;
@@ -23,9 +24,11 @@ public class Music extends ScreenAdapter{
 		soyouSong = Gdx.audio.newMusic(Gdx.files.internal("soyou.mp3"));
 		donotloveyouSong = Gdx.audio.newMusic(Gdx.files.internal("donotloveyou.mp3"));
 		devilSong = Gdx.audio.newMusic(Gdx.files.internal("devil.mp3"));
+		fatratSong = Gdx.audio.newMusic(Gdx.files.internal("fatratSong.mp3"));
 		soyouSong.setLooping(true);
 		donotloveyouSong.setLooping(true);
 		devilSong.setLooping(true);
+		fatratSong.setLooping(true);
 	}
 	
 	public void initTime() {
@@ -33,9 +36,18 @@ public class Music extends ScreenAdapter{
 	}
 
 	public void update() {
+		fatratSong();
 		soyouPlay();
 		donotloveyouPlay();
 		devilPlay();
+	}
+	
+	public void fatratSong() {
+		if (soyouMode == false && devilMode == false && donotloveyouMode == false) {
+			fatratSong.play();
+		} else if (soyouMode == true || devilMode == true || donotloveyouMode == true) {
+			fatratSong.stop();
+		}
 	}
 	
 	public boolean getFinishGameShowScore() {
