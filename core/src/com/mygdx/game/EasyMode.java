@@ -3,12 +3,9 @@ package com.mygdx.game;
 import java.util.Random;
 
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class EasyMode extends ScreenAdapter {
 	
-	private SpriteBatch batch;
-	private BeatGame beatGame;
 	private DazzButton dazzButton;
 	private Time time;
 	private Random randomGenerator;
@@ -17,8 +14,6 @@ public class EasyMode extends ScreenAdapter {
 	private int numberWhichIsRandomedBefore [] = new int [1];
 	
 	public EasyMode(BeatGame beatGame, Time time, DazzButton dazzButton) {
-		batch = beatGame.batch;
-		this.beatGame = beatGame;
 		this.time = time;
 		this.dazzButton = dazzButton;
 		randomGenerator = new Random();
