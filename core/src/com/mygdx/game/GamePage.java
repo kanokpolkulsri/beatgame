@@ -7,8 +7,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class GamePage extends ScreenAdapter {
 	
 	private SpriteBatch batch;
-	private BeatGame beatGame;
-	private GameScreen gameScreen;
 	private ContextOnPage contextOnPage;
 	private Time time;
 	private Button button;
@@ -17,15 +15,11 @@ public class GamePage extends ScreenAdapter {
 	private Gage gage;
 	private PointScore pointScore;
 	private Music music;
-	private FirstPage firstPage;
 	private Texture backGround;
 	
 	public GamePage(BeatGame beatGame, GameScreen gameScreen, Music music, FirstPage firstPage) {
 		batch = beatGame.batch;
-		this.beatGame = beatGame;
-		this.gameScreen = gameScreen;
 		this.music = music;
-		this.firstPage = firstPage;
 		contextOnPage = gameScreen.getContextOnPage();
 		time = gameScreen.getTime();
 		button = gameScreen.getButton();
