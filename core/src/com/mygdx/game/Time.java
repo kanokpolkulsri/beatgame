@@ -20,16 +20,16 @@ public class Time {
 	public void prepareTimeStart() {
 		if (timeStartIsUsed == false) {
 			if (music.getSoyouStatus() == true) {
-				minuteSong = 2;
-				secondSong = 7;
+				minuteSong = 1;
+				secondSong = 17;
 				timeStartIsUsed = true;
 			} else if (music.getDonotloveyouStatus() == true) {
-				minuteSong = 2;
-				secondSong = 32;
+				minuteSong = 1;
+				secondSong = 2;
 				timeStartIsUsed = true;
 			} else if (music.getDevilStatus() == true) {
-				minuteSong = 2;
-				secondSong = 5;
+				minuteSong = 0;
+				secondSong = 44;
 				timeStartIsUsed = true;
 			}
 		}

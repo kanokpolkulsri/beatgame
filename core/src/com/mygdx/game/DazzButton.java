@@ -30,21 +30,21 @@ public class DazzButton extends ScreenAdapter {
 		} else if (timeEasyMode < timeEasyModeMaxInRound + period * 2) {
 			batch.draw(changeColor4_button, x, y);
 		} else if (timeEasyMode < timeEasyModeMaxInRound + period * 3) {
-			batch.draw(changeColor3_button, x, y);
+			batch.draw(changeColor4_button, x, y);
 		} else if (timeEasyMode < timeEasyModeMaxInRound + period * 4) {
-			batch.draw(changeColor2_button, x, y);
+			batch.draw(changeColor3_button, x, y);
 		} else if (timeEasyMode < timeEasyModeMaxInRound + period * 5) {
-			batch.draw(changeColor1_button, x, y);
+			batch.draw(changeColor3_button, x, y);
 		} else if (timeEasyMode < timeEasyModeMaxInRound + period * 6) {
-			batch.draw(changeColor1_button, x, y);
+			batch.draw(changeColor2_button, x, y);
 		} else if (timeEasyMode < timeEasyModeMaxInRound + period * 7) {
 			batch.draw(changeColor2_button, x, y);
 		} else if (timeEasyMode < timeEasyModeMaxInRound + period * 8) {
-			batch.draw(changeColor3_button, x, y);
+			batch.draw(changeColor1_button, x, y);
 		} else if (timeEasyMode < timeEasyModeMaxInRound + period * 9) {
-			batch.draw(changeColor4_button, x, y);
+			batch.draw(changeColor1_button, x, y);
 		} else if (timeEasyMode < timeEasyModeMaxInRound + period * 10) {
-			batch.draw(changeColor5_button, x, y);
+			batch.draw(changeColor1_button, x, y);
 		}
 	}
 
