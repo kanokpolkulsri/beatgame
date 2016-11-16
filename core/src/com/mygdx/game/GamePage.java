@@ -33,6 +33,7 @@ public class GamePage extends ScreenAdapter {
 	
 	@Override
 	public void render(float delta) {
+		supportUpdate(delta);
 		if (music.getSoyouStatus() == true) {
 			soyouStart(delta);
 		}
@@ -48,35 +49,26 @@ public class GamePage extends ScreenAdapter {
     	batch.draw(backGround, 0, 0);
     }
 	
-	public void devilStart(float delta) {
+	public void supportUpdate(float delta){
 		backGround();
 		contextOnPage.render(delta);
 		time.update(delta);
 		button.render(delta);
-		easyMode.render(delta);
-		hardMode.render(delta);
 		gage.update();
 		pointScore.render(delta);
+	}
+	
+	public void devilStart(float delta) {
+		easyMode.render(delta);
+		hardMode.render(delta);
 	}
 	
 	public void donotloveyouStart(float delta) {
-		backGround();
-		contextOnPage.render(delta);
-		time.update(delta);
-		button.render(delta);
 		hardMode.render(delta);
-		gage.update();
-		pointScore.render(delta);
 	}
 	
 	public void soyouStart(float delta) {
-		backGround();
-		contextOnPage.render(delta);
-		time.update(delta);
-		button.render(delta);
 		easyMode.render(delta);
-		gage.update();
-		pointScore.render(delta);
 	}
 
 }

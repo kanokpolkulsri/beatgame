@@ -21,7 +21,7 @@ public class Time {
 		if (timeStartIsUsed == false) {
 			if (music.getSoyouStatus() == true) {
 				minuteSong = 1;
-				secondSong = 17;
+				secondSong = 15;
 				timeStartIsUsed = true;
 			} else if (music.getDonotloveyouStatus() == true) {
 				minuteSong = 1;
