@@ -55,7 +55,7 @@ public class PointScore extends ScreenAdapter {
 			}
 			System.out.println(score);
 			numberWhichIsAnswered[0] = button.pressButton();
-		} else if ((easyMode.getNumberWhichIsRandomed() != button.pressButton() || hardMode.getNumberWhichIsRandomed() != button.pressButton())&& button.pressButton() != 0 && score > 0) {
+		} else if (easyMode.getNumberWhichIsRandomed() != button.pressButton() && hardMode.getNumberWhichIsRandomed() != button.pressButton() && button.pressButton() != 0 && score > 0) {
 			score -= 1;
 			pointGage = 0;
 			System.out.println(score);
